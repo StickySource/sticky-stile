@@ -8,6 +8,7 @@ import java.net.URL;
 import java.net.URLConnection;
 
 import net.stickycode.resource.DirectoryResources;
+import net.stickycode.resource.ResourceType;
 import net.stickycode.resource.Resources;
 import net.stickycode.stile.artifact.Artifact;
 import net.stickycode.stile.version.component.ComponentVersionParser;
@@ -26,7 +27,7 @@ public class WorkspaceTest {
 
   @Test
   public void compile() {
-    Resources sources = new DirectoryResources(new File("src/test/java"));
+    Resources sources = new DirectoryResources(new File("src/test/java"), new ResourceType(".java"));
     assertThat(sources).hasSize(3);
     Resources classes = new JavaCompilerStiler().process(sources);
     assertThat(classes).hasSize(3);

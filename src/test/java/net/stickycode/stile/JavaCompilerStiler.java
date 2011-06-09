@@ -10,7 +10,9 @@ import javax.tools.StandardJavaFileManager;
 import javax.tools.StandardLocation;
 import javax.tools.ToolProvider;
 
+import net.stickycode.resource.DirectoryResources;
 import net.stickycode.resource.FileResources;
+import net.stickycode.resource.ResourceType;
 import net.stickycode.resource.Resources;
 import net.stickycode.stereotype.Configured;
 
@@ -19,7 +21,7 @@ import net.stickycode.stereotype.Configured;
 public class JavaCompilerStiler {
 
   @Configured("The directory where the classes will be compiled to")
-  File outputDirectory;
+  File outputDirectory = new File("stile/classes");
 
 //  @Processes("text/x-java-source")
 //  @Generates("application/java-vm")
@@ -41,7 +43,7 @@ public class JavaCompilerStiler {
       closeQuietly(fileManager);
     }
 
-    return null;
+    return new DirectoryResources(outputDirectory, new ResourceType(".class"));
   }
 
 private StandardJavaFileManager getFileManager(JavaCompiler compiler) {

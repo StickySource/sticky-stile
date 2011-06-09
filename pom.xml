@@ -26,18 +26,6 @@
 	<inceptionYear>2011</inceptionYear>
 	<dependencies>
 		<dependency>
-			<groupId>net.stickycode.composite</groupId>
-			<artifactId>sticky-composite-unittest</artifactId>
-			<version>[1,2)</version>
-			<scope>test</scope>
-		</dependency>
-		<dependency>
-			<groupId>net.stickycode.composite</groupId>
-			<artifactId>sticky-composite-logging-deploy</artifactId>
-			<version>[1.2,3)</version>
-			<scope>test</scope>
-		</dependency>
-		<dependency>
 			<groupId>net.stickycode.stile</groupId>
 			<artifactId>stile-artifact-api</artifactId>
 			<version>0.1-SNAPSHOT</version>
@@ -46,6 +34,12 @@
 			<groupId>net.stickycode</groupId>
 			<artifactId>sticky-stereotype</artifactId>
 			<version>[1,2)</version>
+		</dependency>
+		<dependency>
+			<groupId>net.stickycode.mockwire</groupId>
+			<artifactId>mockwire-guice3</artifactId>
+			<version>[0.1,1)</version>
+			<scope>test</scope>
 		</dependency>
 	</dependencies>
 
