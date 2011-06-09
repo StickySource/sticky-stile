@@ -1,11 +1,10 @@
 package net.stickycode.stile;
 
-import net.stickycode.stile.artifact.Artifact;
+import java.io.File;
 
 
-public class Workspace {
+public interface Workspace {
 
-  public void addArtifact(Artifact artifact) {
-  }
+  File getOutputDirectory();
 
 }
