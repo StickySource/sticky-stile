@@ -4,7 +4,6 @@ import java.io.File;
 import java.io.IOException;
 import java.util.Collections;
 
-import javax.inject.Inject;
 import javax.tools.JavaCompiler;
 import javax.tools.JavaFileObject;
 import javax.tools.StandardJavaFileManager;
@@ -14,7 +13,6 @@ import javax.tools.ToolProvider;
 import net.stickycode.resource.FileResources;
 import net.stickycode.resource.Resources;
 import net.stickycode.stereotype.Configured;
-import net.stickycode.stereotype.ConfiguredStrategy;
 
 
 

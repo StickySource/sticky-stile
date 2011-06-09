@@ -27,7 +27,9 @@ public class WorkspaceTest {
   @Test
   public void compile() {
     Resources sources = new DirectoryResources(new File("src/test/java"));
-    new JavaCompilerStiler().process(sources);
+    assertThat(sources).hasSize(3);
+    Resources classes = new JavaCompilerStiler().process(sources);
+    assertThat(classes).hasSize(3);
   }
 
   @Test
