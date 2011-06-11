@@ -37,8 +37,8 @@
 		</dependency>
 		<dependency>
 			<groupId>net.stickycode.mockwire</groupId>
-			<artifactId>mockwire-spring30</artifactId>
-			<version>[4.2,5)</version>
+			<artifactId>mockwire-guice3</artifactId>
+			<version>[0.1,1)</version>
 			<scope>test</scope>
 		</dependency>
 	</dependencies>

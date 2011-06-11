@@ -7,13 +7,8 @@ import javax.inject.Inject;
 import net.stickycode.reflector.AnnotatedMethodProcessor;
 import net.stickycode.resource.Resources;
 
-import org.slf4j.Logger;
-import org.slf4j.LoggerFactory;
-
 public class ProcessesAnnotatedMethodProcessor
     extends AnnotatedMethodProcessor {
-
-  private Logger log = LoggerFactory.getLogger(getClass());
 
   @Inject
   private ResourceListeners listeners;

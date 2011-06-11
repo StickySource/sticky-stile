@@ -4,6 +4,7 @@ import net.stickycode.exception.PermanentException;
 import net.stickycode.resource.Resources;
 
 
+@SuppressWarnings("serial")
 public class ProcessorsShouldHaveOneParameterOfTypeResourcesException
     extends PermanentException {
 

@@ -5,6 +5,7 @@ import javax.annotation.Resources;
 import net.stickycode.exception.PermanentException;
 
 
+@SuppressWarnings("serial")
 public class ProducesShouldReturnResourcesException
     extends PermanentException {
 

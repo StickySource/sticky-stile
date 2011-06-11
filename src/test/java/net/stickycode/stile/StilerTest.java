@@ -32,6 +32,7 @@ public class StilerTest {
 
   @Test
   public void stiler() {
+    System.out.println("eg");
     stiler.register(compiler);
     stiler.register(sources);
     Resources resources = stiler.produce(ResourcesTypes.JavaSource);

@@ -5,7 +5,6 @@ import static net.stickycode.exception.resolver.ParameterResolver.resolve;
 import java.lang.reflect.InvocationTargetException;
 import java.lang.reflect.Method;
 
-import net.stickycode.exception.resolver.ParameterResolver;
 import net.stickycode.resource.Resources;
 
 import org.slf4j.Logger;

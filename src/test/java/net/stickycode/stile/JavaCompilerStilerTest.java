@@ -8,7 +8,6 @@ import java.io.File;
 import net.stickycode.mockwire.Controlled;
 import net.stickycode.mockwire.UnderTest;
 import net.stickycode.mockwire.junit4.MockwireRunner;
-import net.stickycode.resource.ResourceType;
 import net.stickycode.resource.Resources;
 import net.stickycode.resource.directory.DirectoryResources;
 
