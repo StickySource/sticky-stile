@@ -33,12 +33,12 @@
 		<dependency>
 			<groupId>net.stickycode</groupId>
 			<artifactId>sticky-stereotype</artifactId>
-			<version>[1,2)</version>
+			<version>[1.3,2)</version>
 		</dependency>
 		<dependency>
 			<groupId>net.stickycode.mockwire</groupId>
-			<artifactId>mockwire-guice3</artifactId>
-			<version>[0.1,1)</version>
+			<artifactId>mockwire-spring30</artifactId>
+			<version>[4.2,5)</version>
 			<scope>test</scope>
 		</dependency>
 	</dependencies>

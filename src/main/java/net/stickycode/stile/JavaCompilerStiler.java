@@ -11,10 +11,9 @@ import javax.tools.StandardJavaFileManager;
 import javax.tools.StandardLocation;
 import javax.tools.ToolProvider;
 
-import net.stickycode.resource.DirectoryResources;
-import net.stickycode.resource.FileResources;
-import net.stickycode.resource.ResourceType;
 import net.stickycode.resource.Resources;
+import net.stickycode.resource.directory.DirectoryResources;
+import net.stickycode.resource.directory.FilesFromResources;
 
 public class JavaCompilerStiler {
 
@@ -24,13 +23,12 @@ public class JavaCompilerStiler {
   @Inject
   private Workspace workspace;
 
-  // @Processes("text/x-java-source")
-  // @Generates("application/java-vm")
-  // <ContentType.JavaByteCode>
+  @Processes(ResourcesTypes.JavaSource)
+  @Produces(ResourcesTypes.JavaByteCode)
   public Resources process(Resources sources) {
     File outputDirectory = getOutputDirectory(sources);
     compileSourceInto(sources, outputDirectory);
-    return new DirectoryResources(outputDirectory, new ResourceType(".class"));
+    return new DirectoryResources(outputDirectory, ResourcesTypes.JavaByteCode);
   }
 
   private void compileSourceInto(Resources sources, File outputDirectory) {
@@ -38,7 +36,7 @@ public class JavaCompilerStiler {
     StandardJavaFileManager fileManager = getFileManager(outputDirectory, compiler);
     try {
       Iterable<? extends JavaFileObject> compilationUnits1 =
-          fileManager.getJavaFileObjectsFromFiles(new FileResources(sources));
+          fileManager.getJavaFileObjectsFromFiles(new FilesFromResources(sources));
       Boolean result = compiler.getTask(null, fileManager, null, null, null, compilationUnits1).call();
       if (!result)
         throw new RuntimeException("oops");
@@ -49,7 +47,7 @@ public class JavaCompilerStiler {
   }
 
   protected File getOutputDirectory(Resources resources) {
-    return new File(workspace.getOutputDirectory(), "classes/" + resources.getReference());
+    return new File(workspace.getOutputDirectory(), resources.getReference() + "/classes");
   }
 
   private StandardJavaFileManager getFileManager(File outputDirectory, JavaCompiler compiler) {
@@ -72,16 +70,5 @@ public class JavaCompilerStiler {
       throw new RuntimeException(e);
     }
   }
-
-  // private Resources selectOutOfDateResources(Resources sources) {
-  // return classResources();
-  // return null;
-  // }
-  //
-  // private Resources classResources(Resources sources) {
-  // // new ResourcesBuilder()
-  // // .fromPath("target", "classes");
-  // return null;
-  // }
 
 }

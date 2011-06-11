@@ -8,9 +8,9 @@ import java.io.File;
 import net.stickycode.mockwire.Controlled;
 import net.stickycode.mockwire.UnderTest;
 import net.stickycode.mockwire.junit4.MockwireRunner;
-import net.stickycode.resource.DirectoryResources;
 import net.stickycode.resource.ResourceType;
 import net.stickycode.resource.Resources;
+import net.stickycode.resource.directory.DirectoryResources;
 
 import org.junit.Test;
 import org.junit.runner.RunWith;
@@ -27,10 +27,10 @@ public class JavaCompilerStilerTest {
   @Test
   public void compile() {
     when(workspace.getOutputDirectory()).thenReturn(new File("target/stile"));
-    Resources sources = new DirectoryResources(new File("src/test/java"), new ResourceType(".java"));
-    assertThat(sources).hasSize(2);
+    Resources sources = new DirectoryResources(new File("src/test/java"), ResourcesTypes.JavaSource);
+    assertThat(sources).hasSize(4);
     Resources classes = compiler.process(sources);
-    assertThat(classes).hasSize(2);
+    assertThat(classes).hasSize(6);
   }
 
 }
