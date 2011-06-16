@@ -41,6 +41,16 @@
 			<version>[0.1,1)</version>
 			<scope>test</scope>
 		</dependency>
+		<dependency>
+			<groupId>net.stickycode.composite</groupId>
+			<artifactId>sticky-composite-logging-deploy</artifactId>
+			<version>[1.2,2)</version>
+		</dependency>
+		<dependency>
+			<groupId>net.stickycode</groupId>
+			<artifactId>sticky-reflector</artifactId>
+			<version>[1.3,2)</version>
+		</dependency>
 	</dependencies>
 
 </project>

@@ -14,6 +14,7 @@ import javax.tools.ToolProvider;
 import net.stickycode.resource.Resources;
 import net.stickycode.resource.directory.DirectoryResources;
 import net.stickycode.resource.directory.FilesFromResources;
+import net.stickycode.stereotype.Configured;
 
 public class JavaCompilerStiler {
 
@@ -22,6 +23,9 @@ public class JavaCompilerStiler {
 
   @Inject
   private Workspace workspace;
+  
+  @Configured
+  private Spheres sphere;
 
   @Processes(ResourcesTypes.JavaSource)
   @Produces(ResourcesTypes.JavaByteCode)
@@ -47,7 +51,7 @@ public class JavaCompilerStiler {
   }
 
   protected File getOutputDirectory(Resources resources) {
-    return new File(workspace.getOutputDirectory(), resources.getReference() + "/classes");
+    return new File(workspace.getOutputDirectory(), sphere.getName() + "/classes");
   }
 
   private StandardJavaFileManager getFileManager(File outputDirectory, JavaCompiler compiler) {

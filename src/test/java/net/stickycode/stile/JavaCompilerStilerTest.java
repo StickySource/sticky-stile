@@ -20,16 +20,16 @@ public class JavaCompilerStilerTest {
   @Controlled
   Workspace workspace;
 
-  @UnderTest
+  @UnderTest("sphere=mingle")
   JavaCompilerStiler compiler;
 
   @Test
-  public void compile() {
-    when(workspace.getOutputDirectory()).thenReturn(new File("target/stile"));
-    Resources sources = new DirectoryResources(new File("src/test/java"), ResourcesTypes.JavaSource);
-    assertThat(sources).hasSize(4);
+  public void compile() throws ClassNotFoundException {
+    when(workspace.getOutputDirectory()).thenReturn(new File("target/stile/" + System.currentTimeMillis()));
+    Resources sources = new DirectoryResources(new File("src/mingle/java"), ResourcesTypes.JavaSource);
+    assertThat(sources).hasSize(2);
     Resources classes = compiler.process(sources);
-    assertThat(classes).hasSize(6);
+    assertThat(classes).hasSize(2);
   }
 
 }

@@ -38,6 +38,9 @@ public class Producer {
       throw new RuntimeException(e);
     }
     catch (InvocationTargetException e) {
+      if (e.getCause() instanceof RuntimeException)
+        throw (RuntimeException)e.getCause();
+
       throw new RuntimeException(e);
     }
   }

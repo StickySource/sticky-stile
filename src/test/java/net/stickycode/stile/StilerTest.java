@@ -1,7 +1,6 @@
 package net.stickycode.stile;
 
 import static org.fest.assertions.Assertions.assertThat;
-import net.stickycode.mockwire.Controlled;
 import net.stickycode.mockwire.UnderTest;
 import net.stickycode.mockwire.junit4.MockwireRunner;
 import net.stickycode.resource.Resources;
@@ -12,8 +11,8 @@ import org.junit.runner.RunWith;
 @RunWith(MockwireRunner.class)
 public class StilerTest {
 
-  @Controlled
-  Workspace workspace;
+  @UnderTest({"sourceDirectory=src", "outputDirectory=target/stile"})
+  CommandLineWorkspace workspace;
 
   @UnderTest
   ResourceListeners listeners;
@@ -24,21 +23,20 @@ public class StilerTest {
   @UnderTest
   Stiler stiler;
 
-  @UnderTest
+  @UnderTest("sphere=mingle")
   JavaCompilerStiler compiler;
 
-  @UnderTest
+  @UnderTest("sphere=mingle")
   JavaSourcesStiler sources;
 
   @Test
   public void stiler() {
-    System.out.println("eg");
     stiler.register(compiler);
     stiler.register(sources);
     Resources resources = stiler.produce(ResourcesTypes.JavaSource);
-    assertThat(resources).hasSize(4);
+    assertThat(resources).hasSize(2);
     Resources classes = stiler.produce(ResourcesTypes.JavaByteCode);
-    assertThat(classes).hasSize(3);
+    assertThat(classes).hasSize(2);
   }
 
 }
