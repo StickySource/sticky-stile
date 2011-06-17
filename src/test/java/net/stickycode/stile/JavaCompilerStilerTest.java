@@ -1,11 +1,10 @@
 package net.stickycode.stile;
 
 import static org.fest.assertions.Assertions.assertThat;
-import static org.mockito.Mockito.when;
 
 import java.io.File;
 
-import net.stickycode.mockwire.Controlled;
+import net.stickycode.mockwire.Uncontrolled;
 import net.stickycode.mockwire.UnderTest;
 import net.stickycode.mockwire.junit4.MockwireRunner;
 import net.stickycode.resource.Resources;
@@ -17,15 +16,14 @@ import org.junit.runner.RunWith;
 @RunWith(MockwireRunner.class)
 public class JavaCompilerStilerTest {
 
-  @Controlled
-  Workspace workspace;
+  @Uncontrolled({"sourceDirectory=src", "outputDirectory=target/stile"})
+  CommandLineWorkspace workspace;
 
   @UnderTest("sphere=mingle")
   JavaCompilerStiler compiler;
 
   @Test
   public void compile() throws ClassNotFoundException {
-    when(workspace.getOutputDirectory()).thenReturn(new File("target/stile/" + System.currentTimeMillis()));
     Resources sources = new DirectoryResources(new File("src/mingle/java"), ResourcesTypes.JavaSource);
     assertThat(sources).hasSize(2);
     Resources classes = compiler.process(sources);
