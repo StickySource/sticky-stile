@@ -4,12 +4,17 @@ import java.io.File;
 
 import javax.inject.Inject;
 
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
+
 import net.stickycode.resource.Resources;
 import net.stickycode.resource.directory.DirectoryResources;
 import net.stickycode.stereotype.Configured;
 
 
 public class JavaSourcesStiler {
+  
+  private Logger log = LoggerFactory.getLogger(getClass());
 
   @Inject
   Workspace workspace;
@@ -20,6 +25,7 @@ public class JavaSourcesStiler {
   @Produces(ResourcesTypes.JavaSource)
   public Resources collectSources() {
     File path = workspace.getSourcePath(sphere, "java");
+    log.info("collecting sources in {}", path);
     return new DirectoryResources(path, ResourcesTypes.JavaSource);
   }
 

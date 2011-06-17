@@ -14,12 +14,8 @@ public interface Workspace {
   // TODO use resources?
   File getSourceDirectory();
 
-  /**
-   *
-   * @param sphere The context of the sources
-   * @param string
-   * @return
-   */
   File getSourcePath(Sphere sphere, String string);
+
+  File getOutputPath(Sphere sphere, String string);
 
 }

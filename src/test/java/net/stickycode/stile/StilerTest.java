@@ -1,6 +1,7 @@
 package net.stickycode.stile;
 
 import static org.fest.assertions.Assertions.assertThat;
+import net.stickycode.mockwire.MockwireConfigured;
 import net.stickycode.mockwire.UnderTest;
 import net.stickycode.mockwire.junit4.MockwireRunner;
 import net.stickycode.resource.Resources;

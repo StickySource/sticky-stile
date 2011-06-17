@@ -11,6 +11,9 @@ import javax.tools.StandardJavaFileManager;
 import javax.tools.StandardLocation;
 import javax.tools.ToolProvider;
 
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
+
 import net.stickycode.resource.Resources;
 import net.stickycode.resource.directory.DirectoryResources;
 import net.stickycode.resource.directory.FilesFromResources;
@@ -18,6 +21,8 @@ import net.stickycode.stereotype.Configured;
 
 public class JavaCompilerStiler {
 
+  private Logger log = LoggerFactory.getLogger(getClass());
+  
   // @Configured("The directory where the classes will be compiled to")
   // File outputDirectory = new File("stile/classes");
 
@@ -31,6 +36,7 @@ public class JavaCompilerStiler {
   @Produces(ResourcesTypes.JavaByteCode)
   public Resources process(Resources sources) {
     File outputDirectory = getOutputDirectory(sources);
+    log.info("compiling to {}", outputDirectory);
     compileSourceInto(sources, outputDirectory);
     return new DirectoryResources(outputDirectory, ResourcesTypes.JavaByteCode);
   }
@@ -51,7 +57,7 @@ public class JavaCompilerStiler {
   }
 
   protected File getOutputDirectory(Resources resources) {
-    return new File(workspace.getOutputDirectory(), sphere.getName() + "/classes");
+    return workspace.getOutputPath(sphere, "classes");
   }
 
   private StandardJavaFileManager getFileManager(File outputDirectory, JavaCompiler compiler) {
