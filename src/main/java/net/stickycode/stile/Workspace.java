@@ -2,6 +2,8 @@ package net.stickycode.stile;
 
 import java.io.File;
 
+import net.stickycode.stile.artifact.Sphere;
+
 public interface Workspace {
 
   // static {

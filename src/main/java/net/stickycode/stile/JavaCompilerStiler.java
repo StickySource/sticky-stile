@@ -18,6 +18,7 @@ import net.stickycode.resource.Resources;
 import net.stickycode.resource.directory.DirectoryResources;
 import net.stickycode.resource.directory.FilesFromResources;
 import net.stickycode.stereotype.Configured;
+import net.stickycode.stile.sphere.Spheres;
 
 public class JavaCompilerStiler {
 

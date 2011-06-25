@@ -10,6 +10,7 @@ import org.slf4j.LoggerFactory;
 import net.stickycode.resource.Resources;
 import net.stickycode.resource.directory.DirectoryResources;
 import net.stickycode.stereotype.Configured;
+import net.stickycode.stile.sphere.Spheres;
 
 
 public class JavaSourcesStiler {

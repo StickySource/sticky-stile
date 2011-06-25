@@ -7,6 +7,7 @@ import org.slf4j.LoggerFactory;
 
 import net.stickycode.stereotype.Configured;
 import net.stickycode.stereotype.PostConfigured;
+import net.stickycode.stile.artifact.Sphere;
 
 
 public class CommandLineWorkspace
