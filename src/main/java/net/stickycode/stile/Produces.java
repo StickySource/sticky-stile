@@ -8,7 +8,7 @@ import java.lang.annotation.Target;
 @Retention(RetentionPolicy.RUNTIME)
 @Target(ElementType.METHOD)
 public @interface Produces {
-  ResourcesTypes value();
+  ResourcesType value();
 
   // TODO? could add optional class value that is used for extensions
 }

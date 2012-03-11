@@ -12,7 +12,7 @@
 	<parent>
 		<groupId>net.stickycode.parent</groupId>
 		<artifactId>sticky-jar</artifactId>
-		<version>1.9</version>
+		<version>1.20</version>
 	</parent>
 	<modelVersion>4.0.0</modelVersion>
 
@@ -28,7 +28,7 @@
 		<dependency>
 			<groupId>net.stickycode.stile</groupId>
 			<artifactId>stile-artifact-api</artifactId>
-			<version>0.1-SNAPSHOT</version>
+			<version>[0,1)</version>
 		</dependency>
 		<dependency>
 			<groupId>net.stickycode</groupId>
@@ -54,7 +54,7 @@
 		<dependency>
 			<groupId>net.stickycode.stile</groupId>
 			<artifactId>stile-sphere</artifactId>
-			<version>0.1-SNAPSHOT</version>
+			<version>[0,1)</version>
 		</dependency>
 	</dependencies>
 
